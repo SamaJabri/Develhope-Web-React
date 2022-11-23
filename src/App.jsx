@@ -1,7 +1,6 @@
 function App() {
-  const hello = <h1>Hello, World!</h1>;
-
-  return hello;
+  const returnSalute = (name) => <h1>Hello, {name}</h1>;
+  return returnSalute("Mozart");
 }
 
 export default App;
