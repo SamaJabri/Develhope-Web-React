@@ -3,6 +3,6 @@ import Welcome from "./components/Welcome";
 
 export default class App extends Component {
   render() {
-    return <Welcome name="Alvaro" />;
+    return <Welcome />;
   }
 }
