@@ -12,7 +12,7 @@ export default class Welcome extends Component {
   render() {
     return (
       <div>
-        <p>Welcome, {this.props.name}!</p>
+        <p>Welcome, {this.name}!</p>
         {
             18 < this.age && this.age < 65
             && this.name === "John"
