@@ -3,6 +3,6 @@ import Counter from "./components/Counter";
 
 export default class App extends Component {
   render() {
-    return <Counter />;
+    return <Counter intialValue = {0} incrementBy = {2} incrementInterval = {1000} />;
   }
 }
