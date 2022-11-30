@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ClickCounter from "./components/ClickCounter";
+import ClickTracker from "./components/ClickTracker";
 
 export default class App extends Component {
   render() {
-    return <ClickCounter />;
+    return <ClickTracker />;
   }
 }
