@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Welcome from "./components/Welcome";
+import Counter from "./components/Counter";
 
 export default class App extends Component {
   render() {
-    return <Welcome name = "Alvaro" />;
+    return <Counter />;
   }
 }
