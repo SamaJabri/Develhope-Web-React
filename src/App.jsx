@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import InteractiveWelcome from "./components/InteractiveWelcome";
+import Login from "./components/Login";
 
 export default class App extends Component {
   render() {
-    return <InteractiveWelcome />;
+    return <Login />;
   }
 }
