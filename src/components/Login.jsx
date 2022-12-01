@@ -5,6 +5,7 @@ export default class Login extends Component {
     username: "",
     password: "",
     remember: false,
+    disableLogin: true,
   };
 
   handleInputChange = (e) => {
@@ -14,29 +15,46 @@ export default class Login extends Component {
       inputType === "checkbox" ? e.target.checked : e.target.value;
 
     this.setState({ [inputName]: inputValue });
+    this.isButtonDisabled();
+  };
+
+  isButtonDisabled = () => {
+    this.setState((state) => {
+      return {
+        disableLogin: state.username && state.password ? false : true,
+      };
+    });
   };
 
   render() {
     return (
       <form>
         <input
-          type = "text"
-          name = "username"
-          value = {this.state.username}
-          onChange = {this.handleInputChange}
+          type="text"
+          name="username"
+          value={this.state.username}
+          onChange={this.handleInputChange}
         />
         <input
-          type = "password"
-          name = "password"
-          value = {this.state.password}
-          onChange = {this.handleInputChange}
+          type="password"
+          name="password"
+          value={this.state.password}
+          onChange={this.handleInputChange}
         />
         <input
-          type = "checkbox"
-          name = "remember"
-          checked = {this.state.remember}
-          onChange = {this.handleInputChange}
+          type="checkbox"
+          name="remember"
+          checked={this.state.remember}
+          onChange={this.handleInputChange}
         />
+
+        <button
+          type="submit"
+          disabled={this.state.disableLogin}
+          onClick={this.props.onLogin}
+        >
+          Login
+        </button>
       </form>
     );
   }
