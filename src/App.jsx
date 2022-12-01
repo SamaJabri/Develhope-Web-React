@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import ClickTracker from "./components/ClickTracker";
+import InteractiveWelcome from "./components/InteractiveWelcome";
 
 export default class App extends Component {
   render() {
-    return <ClickTracker />;
+    return <InteractiveWelcome />;
   }
 }
