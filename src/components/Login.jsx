@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 export default class Login extends Component {
-  state = {
+  INIT_STATE = {
     username: "",
     password: "",
     remember: false,
     disableLogin: true,
   };
+
+  state = this.INIT_STATE;
 
   handleInputChange = (e) => {
     const inputName = e.target.name;
@@ -24,6 +26,10 @@ export default class Login extends Component {
         disableLogin: state.username && state.password ? false : true,
       };
     });
+  };
+
+  resetInputs = () => {
+    this.setState(this.INIT_STATE);
   };
 
   render() {
@@ -54,6 +60,10 @@ export default class Login extends Component {
           onClick={this.props.onLogin}
         >
           Login
+        </button>
+
+        <button type="button" onClick={this.resetInputs}>
+          Reset
         </button>
       </form>
     );
