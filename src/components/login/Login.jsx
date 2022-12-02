@@ -1,76 +1,69 @@
-import React, { Component } from "react";
+import React from "react";
+import { useState } from "react";
 
-export default class Login extends Component {
-  INIT_STATE = {
-    username: "",
-    password: "",
-    remember: false,
-    disableLogin: true,
-  };
+export default function Login(props) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
+  const [disableLogin, setDisableLogin] = useState(true);
 
-  state = this.INIT_STATE;
+  const isButtonDisabled = () =>
+    setDisableLogin(username && password ? false : true);
 
-  handleInputChange = (e) => {
-    const inputName = e.target.name;
+  const handleInputChange = (e, setProperty) => {
     const inputType = e.target.type;
     const inputValue =
       inputType === "checkbox" ? e.target.checked : e.target.value;
 
-    this.setState({ [inputName]: inputValue });
-    this.isButtonDisabled();
+    setProperty(inputValue);
+    isButtonDisabled();
   };
 
-  isButtonDisabled = () => {
-    this.setState((state) => {
-      return {
-        disableLogin: state.username && state.password ? false : true,
-      };
-    });
+  const resetForm = () => {
+    setUsername("");
+    setPassword("");
+    setRemember(false);
+
+    isButtonDisabled();
   };
 
-  resetInputs = () => {
-    this.setState(this.INIT_STATE);
-  };
+  return (
+    <form>
+      <input
+        type="text"
+        name="username"
+        value={username}
+        onChange={(e) => handleInputChange(e, setUsername)}
+      />
 
-  render() {
-    return (
-      <form>
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          onChange={this.handleInputChange}
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.state.password}
-          onChange={this.handleInputChange}
-        />
-        <input
-          type="checkbox"
-          name="remember"
-          checked={this.state.remember}
-          onChange={this.handleInputChange}
-        />
+      <input
+        type="password"
+        name="password"
+        value={password}
+        onChange={(e) => handleInputChange(e, setPassword)}
+      />
 
-        <button
-          className={
-            this.state.password.length >= 8
-              ? "login-button-valid"
-              : "login-button-invalid"
-          }
-          type="submit"
-          disabled={this.state.disableLogin}
-          onClick={this.props.onLogin}
-        >
-          Login
-        </button>
+      <input
+        type="checkbox"
+        name="remember"
+        checked={remember}
+        onChange={(e) => handleInputChange(e, setRemember)}
+      />
 
-        <button type="button" onClick={this.resetInputs}>
-          Reset
-        </button>
-      </form>
-    );
-  }
+      <button
+        className={
+          password.length >= 8 ? "login-button-valid" : "login-button-invalid"
+        }
+        type="submit"
+        disabled={disableLogin}
+        onClick={props.onLogin}
+      >
+        Login
+      </button>
+
+      <button type="reset" onClick={resetForm}>
+        Reset
+      </button>
+    </form>
+  );
 }
