@@ -5,10 +5,6 @@ export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
-  const [disableLogin, setDisableLogin] = useState(true);
-
-  const isButtonDisabled = () =>
-    setDisableLogin(username && password ? false : true);
 
   const handleInputChange = (e, setProperty) => {
     const inputType = e.target.type;
@@ -16,16 +12,14 @@ export default function Login(props) {
       inputType === "checkbox" ? e.target.checked : e.target.value;
 
     setProperty(inputValue);
-    isButtonDisabled();
   };
 
   const resetForm = () => {
     setUsername("");
     setPassword("");
     setRemember(false);
-
-    isButtonDisabled();
   };
+  console.log(username);
 
   return (
     <form>
@@ -55,7 +49,7 @@ export default function Login(props) {
           password.length >= 8 ? "login-button-valid" : "login-button-invalid"
         }
         type="submit"
-        disabled={disableLogin}
+        disabled={!(username && password)}
         onClick={props.onLogin}
       >
         Login
