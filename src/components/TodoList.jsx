@@ -7,7 +7,7 @@ export default class TodoList extends Component {
   };
 
   handleItemsAddition = (e) =>
-    this.setState({ items: [...this.state.items, this.state.item] });
+    this.setState({ item: "", items: [...this.state.items, this.state.item] });
 
   render() {
     return (
