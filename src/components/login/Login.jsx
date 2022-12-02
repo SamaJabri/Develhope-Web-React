@@ -55,6 +55,11 @@ export default class Login extends Component {
         />
 
         <button
+          className={
+            this.state.password.length >= 8
+              ? "login-button-valid"
+              : "login-button-invalid"
+          }
           type="submit"
           disabled={this.state.disableLogin}
           onClick={this.props.onLogin}
