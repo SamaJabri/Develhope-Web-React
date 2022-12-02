@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Sum from "./components/Sum";
+import ClickCounter from "./components/counter/ClickCounter";
 
 export default class App extends Component {
   render() {
-    return <Sum />;
+    return <ClickCounter />;
   }
 }
