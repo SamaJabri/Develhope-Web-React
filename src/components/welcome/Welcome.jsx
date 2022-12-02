@@ -1,7 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Welcome extends Component {
-  render() {
-    return <p className="welcome">Welcome, {this.props.name}!</p>;
-  }
+export default function Welcome(props) {
+  return <p className="welcome">Welcome, {props.name}!</p>;
 }
