@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Login from "./components/Login";
+import UncontrolledLogin from "./components/UncontrolledLogin";
 
 export default class App extends Component {
   onLogin = (e) => e.preventDefault();
 
   render() {
-    return <Login onLogin={this.onLogin} />;
+    return <UncontrolledLogin onLogin={this.onLogin} />;
   }
 }
