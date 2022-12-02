@@ -3,6 +3,6 @@ import Container from "./components/Container";
 
 export default class App extends Component {
   render() {
-    return <Container />;
+    return <Container title="Hello there!" />;
   }
 }
