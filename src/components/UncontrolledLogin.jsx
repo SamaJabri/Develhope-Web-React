@@ -17,8 +17,17 @@ export default class UncontrolledLogin extends Component {
   render() {
     return (
       <form ref={this.formRef}>
-        <input type="text" name="username" onChange={this.isButtonDisabled} />
-        <input type="password" name="password" onChange={this.isButtonDisabled} />
+        <input
+          type="text"
+          name="username"
+          onChange={this.isButtonDisabled}
+          autoFocus
+        />
+        <input
+          type="password"
+          name="password"
+          onChange={this.isButtonDisabled}
+        />
         <input type="checkbox" name="remember" />
 
         <button type="submit" name="login" onClick={this.props.onLogin}>
