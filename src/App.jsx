@@ -1,8 +1,21 @@
 import React, { Component } from "react";
-import Container from "./components/Container";
+import TodoList from "./components/TodoList";
 
 export default class App extends Component {
   render() {
-    return <Container title="Hello there!" />;
+    return (
+      <TodoList
+        render={(items, deleteFunction) => (
+          <ul>
+            {items.map((item) => (
+              <div>
+                <li>{item}</li>
+                <button onClick={() => deleteFunction(item)}>x</button>
+              </div>
+            ))}
+          </ul>
+        )}
+      />
+    );
   }
 }

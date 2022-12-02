@@ -23,23 +23,12 @@ export default class TodoList extends Component {
         <button onClick={this.handleItemsAddition}>Add</button>
         <button onClick={() => this.setStateItem("items", [])}>Reset</button>
 
-        <ul>
-          {this.state.items.map((item) => (
-            <div>
-              <li>{item}</li>
-              <button
-                onClick={() =>
-                  this.setStateItem(
-                    "items",
-                    this.state.items.filter((val) => val !== item)
-                  )
-                }
-              >
-                x
-              </button>
-            </div>
-          ))}
-        </ul>
+        {this.props.render(this.state.items, (item) =>
+          this.setStateItem(
+            "items",
+            this.state.items.filter((val) => val !== item)
+          )
+        )}
       </div>
     );
   }
