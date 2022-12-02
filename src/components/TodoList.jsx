@@ -19,6 +19,7 @@ export default class TodoList extends Component {
           onChange={(e) => this.setState({ item: e.target.value })}
         />
         <button onClick={this.handleItemsAddition}>Add</button>
+        <button onClick={() => this.setState({ items: [] })}>Reset</button>
 
         <ul>
           {this.state.items.map((item) => (
