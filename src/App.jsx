@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Welcome from "./components/welcome/Welcome";
+import Sum from "./components/Sum";
 
 export default class App extends Component {
   render() {
-    return <Welcome name="Alvaro" />;
+    return <Sum numbers={[1, 2, 3, 4, 5]} />;
   }
 }
