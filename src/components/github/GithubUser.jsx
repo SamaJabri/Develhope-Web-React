@@ -5,7 +5,7 @@ export default function GithubUser(props) {
   const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${props.name}`)
+    fetch(`https://api.github.com/users/${props.user}`)
       .then((promise) => promise.json())
       .then((result) => setUser(result))
       .catch((error) => alert(error));
