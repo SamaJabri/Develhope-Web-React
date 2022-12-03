@@ -1,15 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import useGithubUser from "./useGithubUser";
 
 export default function GithubUser(props) {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${props.user}`)
-      .then((promise) => promise.json())
-      .then((result) => setUser(result))
-      .catch((error) => alert(error));
-  }, []);
+  const { user } = useGithubUser(props.username);
 
   return (
     <div>
@@ -21,6 +14,7 @@ export default function GithubUser(props) {
             width={150}
             height={150}
           />
+
           <h2>
             {user.login} - {user.id}
           </h2>
