@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Counter from "./components/counter/Counter";
+import GithubUser from "./components/GithubUser";
 
 export default class App extends Component {
   render() {
-    return <Counter intialValue={0} incrementBy={2} incrementInterval={1000} />;
+    return <GithubUser name="SamaJabri" />;
   }
 }
