@@ -1,5 +1,5 @@
 import React from "react";
-import useControlledform from "../../useControlledform";
+import useControlledform from "./useControlledform";
 
 export default function Login(props) {
   const { username, password, handleInputChange } = useControlledform();
