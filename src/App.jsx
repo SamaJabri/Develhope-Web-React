@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import GithubUserList from "./components/github/GithubUserList";
+import Login from "./components/login/Login";
 
 export default class App extends Component {
+  onLogin = (e) => e.preventDefault();
+
   render() {
-    return <GithubUserList />;
+    return <Login onLogin={this.onLogin} />;
   }
 }

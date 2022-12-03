@@ -1,25 +1,8 @@
 import React from "react";
-import { useState } from "react";
+import useControlledform from "../../useControlledform";
 
 export default function Login(props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
-
-  const handleInputChange = (e, setProperty) => {
-    const inputType = e.target.type;
-    const inputValue =
-      inputType === "checkbox" ? e.target.checked : e.target.value;
-
-    setProperty(inputValue);
-  };
-
-  const resetForm = () => {
-    setUsername("");
-    setPassword("");
-    setRemember(false);
-  };
-  console.log(username);
+  const { username, password, handleInputChange } = useControlledform();
 
   return (
     <form>
@@ -27,21 +10,14 @@ export default function Login(props) {
         type="text"
         name="username"
         value={username}
-        onChange={(e) => handleInputChange(e, setUsername)}
+        onChange={(e) => handleInputChange(e, "username")}
       />
 
       <input
         type="password"
         name="password"
         value={password}
-        onChange={(e) => handleInputChange(e, setPassword)}
-      />
-
-      <input
-        type="checkbox"
-        name="remember"
-        checked={remember}
-        onChange={(e) => handleInputChange(e, setRemember)}
+        onChange={(e) => handleInputChange(e, "password")}
       />
 
       <button
@@ -53,10 +29,6 @@ export default function Login(props) {
         onClick={props.onLogin}
       >
         Login
-      </button>
-
-      <button type="reset" onClick={resetForm}>
-        Reset
       </button>
     </form>
   );
