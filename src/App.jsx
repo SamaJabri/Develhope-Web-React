@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Login from "./components/login/Login";
+import ClickCounter from "./components/counter/ClickCounter";
 
 export default class App extends Component {
-  onLogin = (e) => e.preventDefault();
+  onCounterChange = (count) => console.log(count);
 
   render() {
-    return <Login onLogin={this.onLogin} />;
+    return <ClickCounter onCounterChange={this.onCounterChange} />;
   }
 }
