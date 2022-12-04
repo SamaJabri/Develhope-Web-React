@@ -1,19 +1,16 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import useGithubUser from "./useGithubUser";
 
 export default function GithubUser(props) {
-  const [user, setUser] = useState({});
+  const { fetchUser, user, error, loading } = useGithubUser();
 
-  useEffect(() => {
-    fetch(`https://api.github.com/users/${props.user}`)
-      .then((promise) => promise.json())
-      .then((result) => setUser(result))
-      .catch((error) => alert(error));
-  }, []);
+  useEffect(() => fetchUser(props.username), []);
 
   return (
     <div>
-      {user.length === 0 ? (
+      {loading && <h1>Loading...</h1>}
+      {error && <h1>Error</h1>}
+      {user && (
         <div>
           <img
             src={user.avatar_url}
@@ -21,12 +18,11 @@ export default function GithubUser(props) {
             width={150}
             height={150}
           />
+
           <h2>
             {user.login} - {user.id}
           </h2>
         </div>
-      ) : (
-        <h1>404 User Not Found</h1>
       )}
     </div>
   );
