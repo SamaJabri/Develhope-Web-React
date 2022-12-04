@@ -1,28 +1,13 @@
 import React, { Component } from "react";
-import FilteredList from "./components/FilteredList";
+import { Routes, Route } from "react-router-dom";
+import Welcome from "./components/welcome/Welcome";
 
 export default class App extends Component {
-  state = {
-    dataList: [
-      {
-        id: 1,
-        name: "Alvaro",
-        age: 16,
-      },
-      {
-        id: 2,
-        name: "Sean",
-        age: 32,
-      },
-      {
-        id: 3,
-        name: "Mozart",
-        age: 60,
-      },
-    ],
-  };
-
   render() {
-    return <FilteredList dataList={this.state.dataList} />;
+    return (
+      <Routes>
+        <Route path="/" element={<Welcome name="Alvaro" />} />
+      </Routes>
+    );
   }
 }
