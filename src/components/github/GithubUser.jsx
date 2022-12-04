@@ -6,7 +6,7 @@ export default function GithubUser(props) {
 
   return (
     <div>
-      {user.length === 0 ? (
+      {user ? (
         <div>
           <img
             src={user.avatar_url}

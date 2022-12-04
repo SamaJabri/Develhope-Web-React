@@ -1,8 +1,8 @@
 import React from "react";
-import useControlledform from "./useControlledform";
+import useControlledform from "../../useControlledform";
 
 export default function Login(props) {
-  const { username, password, handleInputChange } = useControlledform();
+  const {username, password, handleInputChange} = useControlledform();
 
   return (
     <form>
@@ -10,14 +10,14 @@ export default function Login(props) {
         type="text"
         name="username"
         value={username}
-        onChange={(e) => handleInputChange(e, "username")}
+        onChange={(e) => handleInputChange(e, 'username')}
       />
 
       <input
         type="password"
         name="password"
         value={password}
-        onChange={(e) => handleInputChange(e, "password")}
+        onChange={(e) => handleInputChange(e, 'password')}
       />
 
       <button
