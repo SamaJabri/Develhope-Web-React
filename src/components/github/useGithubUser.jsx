@@ -4,7 +4,7 @@ export default function useGithubUser(username) {
   const fetchUser = (url) => fetch(url).then((response) => response.json());
 
   const { data, error } = useSWR(
-    `https://api.github.com/users/${username}`,
+    username && `https://api.github.com/users/${username}`,
     fetchUser
   );
 
