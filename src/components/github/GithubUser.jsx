@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useGithubUser from "./useGithubUser";
 
 export default function GithubUser(props) {
-  const { fetchUser, user, error, loading } = useGithubUser();
-
-  useEffect(() => fetchUser(props.username), [props.username]);
+  const { user, error, loading } = useGithubUser(props.username);
 
   return (
     <div>
       {loading && <h1>Loading...</h1>}
-      {error && !user && <h1>Error</h1>}
+      {error && <h1>Error</h1>}
       {user && (
         <div>
           <img
