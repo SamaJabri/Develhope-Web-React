@@ -2,7 +2,9 @@ import React from "react";
 import useGithubUser from "./useGithubUser";
 
 export default function GithubUser(props) {
-  const { user, error, loading } = useGithubUser(props.username);
+  const { user, error, loading, handleFetching } = useGithubUser(
+    props.username
+  );
 
   return (
     <div>
