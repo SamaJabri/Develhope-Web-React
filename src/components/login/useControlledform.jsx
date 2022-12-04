@@ -1,17 +1,14 @@
 import { useState } from "react";
 
 export default function useControlledform() {
-  const [formInputs, setFormInputs] = useState({
-    username: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleInputChange = (e, field) =>
-    setFormInputs({ ...formInputs, [field]: e.target.value });
+  const handleInputChange = (value, setField) => setField(value);
 
   return {
-    username: formInputs.username,
-    password: formInputs.password,
+    username,
+    password,
     handleInputChange,
   };
 }

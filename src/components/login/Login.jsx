@@ -10,14 +10,14 @@ export default function Login(props) {
         type="text"
         name="username"
         value={username}
-        onChange={(e) => handleInputChange(e, "username")}
+        onChange={(e) => handleInputChange(e.target.value, "setUsername")}
       />
 
       <input
         type="password"
         name="password"
         value={password}
-        onChange={(e) => handleInputChange(e, "password")}
+        onChange={(e) => handleInputChange(e.target.value, "setPassword")}
       />
 
       <button
