@@ -1,10 +1,15 @@
 import React, { Component } from "react";
-import Login from "./components/login/Login";
+import CarDetails from "./components/CarDetails";
 
 export default class App extends Component {
-  onLogin = (e) => e.preventDefault();
+
+  initialData = {
+    model: 'BMW',
+    year: '2019',
+    color: '#643A3A'
+  }
 
   render() {
-    return <Login onLogin={this.onLogin} />;
+    return <CarDetails initialData={this.initialData}  />;
   }
 }
