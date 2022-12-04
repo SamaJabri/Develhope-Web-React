@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Welcome from "./components/welcome/Welcome";
 import Counter from "./components/counter/Counter";
 import ShowGithubUser from "./components/github/ShowGithubUser";
+import GithubUserList from "./components/github/GithubUserList";
 
 export default class App extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class App extends Component {
       <div>
         <div>
           <Link to="/">Home</Link> | <Link to="/counter">Counter</Link> |{" "}
-          <Link to="/users/samajabri">Github Account</Link>
+          <Link to="/users">Github Account</Link>
         </div>
 
         <Routes>
@@ -26,7 +27,9 @@ export default class App extends Component {
               />
             }
           />
-          <Route path="users/:username" element={<ShowGithubUser />} />
+          <Route path="users" element={<GithubUserList />}>
+            <Route path=":username" element={<ShowGithubUser />} />
+          </Route>
         </Routes>
       </div>
     );
