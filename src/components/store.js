@@ -3,7 +3,7 @@ import { createStore } from "redux";
 
 const store = createStore(counterReducer);
 
-store.subscribe(() => console.log("Current state: " + store.getState()));
+store.subscribe(() => console.log(store.getState()));
 
 store.dispatch(incrementCounter(4));
 
