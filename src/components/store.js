@@ -9,8 +9,6 @@ const rootReducer = combineReducers({
 
 const store = createStore(rootReducer);
 
-store.subscribe(() => console.log(store.getState()));
-
 store.dispatch(incrementCounter(4));
 store.dispatch(addTodo({ id: 1, title: 'Study Redux', completed: false }));
 store.dispatch(addTodo({ id: 2, title: 'DBMS Project', completed: false }));
